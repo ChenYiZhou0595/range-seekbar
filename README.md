@@ -18,25 +18,22 @@
 
 [APK download](https://github.com/Jay-Goo/RangeSeekBar/blob/master/app/release/app-release.apk)
 
-[fir.im](https://fir.im/91up) <img src="https://github.com/Jay-Goo/RangeSeekBar/blob/master/Gif/qr.png" height="150px"/>
-
 ## Usage
 
 ### Dependencies
 `Release Version` [![](https://jitpack.io/v/Jay-Goo/RangeSeekBar.svg)](https://jitpack.io/#Jay-Goo/RangeSeekBar)
 
-```xml
-    allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
 
-	dependencies {
-        implementation 'com.github.thiago-you:RangeSeekBar:1.0.0'
-	}
-
+dependencies {
+    implementation 'com.github.thiago-you:RangeSeekBar:1.0.0'
+}
 ```
 
 ## How to use it
