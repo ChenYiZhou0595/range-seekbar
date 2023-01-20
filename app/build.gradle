@@ -5,17 +5,19 @@ plugins {
 }
 
 android {
-    namespace rootProject.ext.name
+    namespace "you.thiago.demo"
 
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId rootProject.ext.name
+        applicationId "you.thiago.demo"
+
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
+
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
