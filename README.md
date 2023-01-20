@@ -21,8 +21,6 @@
 ## Usage
 
 ### Dependencies
-`Release Version` [![](https://jitpack.io/v/Jay-Goo/RangeSeekBar.svg)](https://jitpack.io/#Jay-Goo/RangeSeekBar)
-
 ```
 allprojects {
     repositories {
@@ -37,7 +35,7 @@ dependencies {
 ```
 
 ## How to use it
-Please See [WIKI！WIKI！WIKI！](https://github.com/Jay-Goo/RangeSeekBar/wiki)
+Please See [WIKI!](https://github.com/Jay-Goo/RangeSeekBar/wiki)
 
 ## License
 Licensed under the Apache License.
