@@ -1,18 +1,24 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-android'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+}
 
 android {
+    namespace rootProject.ext.name
+
     compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId rootProject.ext.applicationId
+        applicationId rootProject.ext.name
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -20,26 +26,21 @@ android {
         }
     }
 
-    signingConfigs {
-        release {
-            storeFile file("RangeSeekBar.jks")
-            storePassword "123456"
-            keyAlias "RangeSeekBar"
-            keyPassword "123456"
-        }
+    buildFeatures {
+        viewBinding true
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.android.support:appcompat-v7:$buildToolsVersion"
-    implementation "com.android.support:design:$buildToolsVersion"
+    implementation "androidx.appcompat:appcompat:1.6.0"
+    implementation "com.google.android.material:material:1.7.0"
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
 
     implementation project(':RangeSeekBar')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
 repositories {
     mavenCentral()
 }
