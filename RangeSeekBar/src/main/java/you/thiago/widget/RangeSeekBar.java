@@ -706,7 +706,7 @@ public class RangeSeekBar extends View {
                 resetCurrentSeekBarThumb();
                 if (callback != null) {
                     SeekBarState[] states = getRangeSeekBarState();
-                    callback.onRangeChanged(this, states[0].value, states[1].value, false);
+                    callback.onRangeChanged(this, states[0].value, states[1].value, !isTouchMove);
                 }
                 //Intercept parent TouchEvent
                 if (getParent() != null) {
