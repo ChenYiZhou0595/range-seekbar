@@ -153,6 +153,8 @@ public class RangeSeekBar extends View {
 
     private boolean isEnable = true;
     float touchDownX,touchDownY;
+    // 点击移动
+    private boolean isTouchMove = false;
     //剩余最小间隔的进度
     float reservePercent;
     boolean isScaleThumb = false;
@@ -587,6 +589,7 @@ public class RangeSeekBar extends View {
             case MotionEvent.ACTION_DOWN:
                 touchDownX = getEventX(event);
                 touchDownY = getEventY(event);
+                isTouchMove = false;
                 if (seekBarMode == SEEKBAR_MODE_RANGE) {
                     if (rightSB.currPercent >= 1 && leftSB.collide(getEventX(event), getEventY(event))) {
                         currTouchSB = leftSB;
@@ -622,6 +625,7 @@ public class RangeSeekBar extends View {
                 return true;
             case MotionEvent.ACTION_MOVE:
                 float x = getEventX(event);
+                isTouchMove = true;
                 if ((seekBarMode == SEEKBAR_MODE_RANGE) && leftSB.currPercent == rightSB.currPercent) {
                     currTouchSB.materialRestore();
                     if (callback != null) {
@@ -693,6 +697,9 @@ public class RangeSeekBar extends View {
 
                 if (seekBarMode == SEEKBAR_MODE_RANGE) {
                     rightSB.setShowIndicatorEnable(false);
+                }
+                if (!isTouchMove) {
+                    currTouchSB.slide(calculateCurrentSeekBarPercent(touchDownX));
                 }
                 leftSB.setShowIndicatorEnable(false);
                 currTouchSB.materialRestore();
